@@ -1,0 +1,38 @@
+{
+	"id": "schema-annotations-tests",
+	"repo": "../schema",
+	"kind": "write-tests",
+	"setup": [],
+	"testCommand": "node \"{repoRoot}/node_modules/vitest/dist/cli.js\" --run --exclude \"**/conformance.test.ts\" --reporter=junit --outputFile=\"{junit}\" --coverage --coverage.reporter=json-summary --coverage.reportsDirectory=coverage --coverage.include=\"src/annotations.ts\"",
+	"prompt": "src/annotations.ts has no dedicated tests: line coverage is 58.9%. Write tests for it in test/annotations.test.ts. Requirements: every test passes; line coverage of src/annotations.ts reaches at least 90%; the tests must be meaningful and would fail against a wrong implementation, not merely call each exported function once. Do not modify src/annotations.ts.",
+	"allowedTools": [
+		"read",
+		"edit",
+		"write",
+		"grep",
+		"find",
+		"ls",
+		"bash"
+	],
+	"timeoutMs": 300000,
+	"coverageTarget": 90,
+	"coverageFile": "coverage/coverage-summary.json",
+	"coverageFormat": "istanbul-summary",
+	"mutants": [
+		{
+			"file": "src/annotations.ts",
+			"find": "\t\t\treturn then === undefined || then(v, a);",
+			"replace": "\t\t\treturn then !== undefined || then(v, a);"
+		},
+		{
+			"file": "src/annotations.ts",
+			"find": "\t\t\tif (n < minContains || n > maxContains) return false;",
+			"replace": "\t\t\tif (n < minContains && n > maxContains) return false;"
+		},
+		{
+			"file": "src/annotations.ts",
+			"find": "export const ANNOTATING_TRUE: AnnotatingCheck = () => true;",
+			"replace": "export const ANNOTATING_TRUE: AnnotatingCheck = () => false;"
+		}
+	]
+}

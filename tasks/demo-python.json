@@ -1,0 +1,9 @@
+{
+	"id": "demo-python",
+	"repo": "fixtures/demo-python",
+	"setup": [],
+	"testCommand": "python -m pytest -q --junitxml=\"{junit}\"",
+	"prompt": "Run the test suite with `python -m pytest -q`. Find the failing tests, diagnose the bug in calculator.py, and fix it so every test passes. Do not modify the test file.",
+	"allowedTools": ["read", "edit", "write", "grep", "find", "ls", "bash"],
+	"timeoutMs": 300000
+}

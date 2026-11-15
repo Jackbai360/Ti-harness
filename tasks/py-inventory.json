@@ -1,0 +1,9 @@
+{
+	"id": "py-inventory",
+	"repo": "fixtures/py-inventory",
+	"setup": [],
+	"testCommand": "python -m pytest -q --junitxml=\"{junit}\"",
+	"prompt": "Run the test suite with `python -m pytest -q`. Some tests fail. Diagnose the root cause and fix the source code so that every test passes. Do not modify the test files.",
+	"allowedTools": ["read", "edit", "write", "grep", "find", "ls", "bash"],
+	"timeoutMs": 300000
+}

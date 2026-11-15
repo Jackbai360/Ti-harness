@@ -1,0 +1,12 @@
+{
+	"name": "ti",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"description": "Ti: a test-focused agent harness built on the Pi coding agent",
+	"scripts": {
+		"start": "node ti.mjs",
+		"demo": "node ti.mjs run tasks/demo-python.json",
+		"check": "node --experimental-strip-types --check src/cli.ts"
+	}
+}

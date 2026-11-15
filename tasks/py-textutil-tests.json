@@ -1,0 +1,29 @@
+{
+	"id": "py-textutil-tests",
+	"repo": "fixtures/py-textutil",
+	"kind": "write-tests",
+	"setup": [],
+	"testCommand": "python -m pytest -q --junitxml=\"{junit}\" --cov=textutil --cov-report=json:coverage.json",
+	"prompt": "textutil.py currently has tests only for slugify. Add tests for the other functions, covering normal cases and edge cases. Requirements: every test passes; total statement coverage is at least 95%; the tests must actually be able to catch a wrong implementation, not merely call each function once. Do not modify textutil.py.",
+	"allowedTools": ["read", "edit", "write", "grep", "find", "ls", "bash"],
+	"timeoutMs": 600000,
+	"coverageTarget": 95,
+	"coverageFile": "coverage.json",
+	"mutants": [
+		{
+			"file": "textutil.py",
+			"find": "if len(text) <= limit:",
+			"replace": "if len(text) < limit:"
+		},
+		{
+			"file": "textutil.py",
+			"find": "return len(text.split())",
+			"replace": "return len(text.split(\" \"))"
+		},
+		{
+			"file": "textutil.py",
+			"find": "word[:1].upper() + word[1:]",
+			"replace": "word.upper()"
+		}
+	]
+}

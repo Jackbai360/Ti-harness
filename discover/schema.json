@@ -1,0 +1,15 @@
+{
+	"repo": "../schema",
+	"discoverCommand": "node \"{repoRoot}/node_modules/vitest/dist/cli.js\" --run --exclude \"**/conformance.test.ts\" --reporter=junit --outputFile=\"{junit}\" --coverage --coverage.reporter=json-summary --coverage.reporter=json --coverage.reportsDirectory=coverage",
+	"taskCommand": "node \"{repoRoot}/node_modules/vitest/dist/cli.js\" --run --exclude \"**/conformance.test.ts\" --reporter=junit --outputFile=\"{junit}\" --coverage --coverage.reporter=json-summary --coverage.reportsDirectory=coverage --coverage.include=\"{module}\"",
+	"coverageFile": "coverage/coverage-summary.json",
+	"coverageDetailFile": "coverage/coverage-final.json",
+	"coverageFormat": "istanbul-summary",
+	"threshold": 90,
+	"mutantsPerTask": 3,
+	"maxCandidatesPerFile": 40,
+	"minLines": 20,
+	"outputDir": "tasks/generated",
+	"timeoutMs": 300000,
+	"allowedTools": ["read", "edit", "write", "grep", "find", "ls", "bash"]
+}

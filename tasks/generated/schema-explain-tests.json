@@ -1,0 +1,28 @@
+{
+	"id": "schema-explain-tests",
+	"repo": "../schema",
+	"kind": "write-tests",
+	"setup": [],
+	"testCommand": "node \"{repoRoot}/node_modules/vitest/dist/cli.js\" --run --exclude \"**/conformance.test.ts\" --reporter=junit --outputFile=\"{junit}\" --coverage --coverage.reporter=json-summary --coverage.reportsDirectory=coverage --coverage.include=\"src/explain.ts\"",
+	"prompt": "src/explain.ts has no dedicated tests: line coverage is 82.6%. Write tests for it in test/explain.test.ts. Requirements: every test passes; line coverage of src/explain.ts reaches at least 90%; the tests must be meaningful and would fail against a wrong implementation, not merely call each exported function once. Do not modify src/explain.ts.",
+	"allowedTools": [
+		"read",
+		"edit",
+		"write",
+		"grep",
+		"find",
+		"ls",
+		"bash"
+	],
+	"timeoutMs": 300000,
+	"coverageTarget": 90,
+	"coverageFile": "coverage/coverage-summary.json",
+	"coverageFormat": "istanbul-summary",
+	"mutants": [
+		{
+			"file": "src/explain.ts",
+			"find": "\t\tif (isBound(maximum) && v > maximum) push(\"maximum\", `expected <= ${maximum}`);",
+			"replace": "\t\tif (isBound(maximum) && v > maximum) push(\"maximum\", `expected < ${maximum}`);"
+		}
+	]
+}
